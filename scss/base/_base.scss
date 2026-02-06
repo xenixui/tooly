@@ -1,34 +1,3 @@
-@use 'tokens/tokens';
-
-body {
-    font-family: tokens.$font-family-base;
-    font-size: tokens.$font-size-16;
-    color: tokens.$color-on-surface;
-    background-color: tokens.$color-surface-var;
-}
-
-h1, h2, h3, h4 {
-    font-family: tokens.$font-family-brand;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-a {
-    color: tokens.$color-on-surface;
-    text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-ul, ol {
-  list-style: none;
-  padding: tokens.$padding-none;
-  margin: tokens.$margin-none;
-}
-
-button {
-    cursor: pointer;
-  }
+@forward 'base_styles';
+@forward 'global';
+@forward 'reset';

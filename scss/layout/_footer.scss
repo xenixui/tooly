@@ -1,11 +1,10 @@
   @use '../tokens/tokens';
-
-  .header {
+  
+  .footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: red;
     color: tokens.$color-on-surface;
     padding: tokens.$padding-xl;
   }
