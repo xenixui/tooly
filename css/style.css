@@ -14,6 +14,20 @@
 /*Margin*/
 /*Gap*/
 /*Border-radius*/
+* {
+  box-sizing: border-box;
+  margin: 0rem;
+  padding: 0rem;
+}
+
+body {
+  margin: 0rem;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0rem;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
@@ -26,6 +40,22 @@ h1, h2, h3, h4 {
   font-family: "Funnel Display", sans-serif;
   font-weight: 700;
   line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.375rem;
 }
 
 a {
@@ -82,10 +112,6 @@ button {
 }
 
 /*Container*/
-.container {
-  max-width: 1320px;
-}
-
 .content {
   max-width: 720px;
 }
@@ -116,7 +142,7 @@ button {
 }
 
 .pad-xxl {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 /*Gap*/
@@ -145,21 +171,12 @@ button {
 }
 
 .gap-xxl {
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0rem;
-  padding: 0rem;
-}
-
-body {
-  margin: 0rem;
-}
-
-h1, h2, h3, h4, h5 {
-  margin: 0rem;
+/*Text align*/
+.text-centered {
+  text-align: center;
 }
 
 .header {
@@ -177,7 +194,7 @@ h1, h2, h3, h4, h5 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .footer {
@@ -191,7 +208,55 @@ h1, h2, h3, h4, h5 {
 
 .container {
   max-width: 1320px;
-  padding: 0px;
+}
+
+.container.s {
+  max-width: 720px;
+}
+
+.index-body {
+  background-image: url("../../assets/image/bg-index.svg");
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  background-color: hsla(228, 6%, 10%, 0);
+  border: solid 1px hsla(228, 6%, 10%, 0);
+  color: hsl(228, 6%, 10%);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.link:hover {
+  background-color: hsl(227, 6%, 91%);
+  border: solid 1px hsl(227, 6%, 91%);
+}
+.link:active {
+  background-color: hsl(341, 87%, 93%);
+  border: solid 1px hsl(341, 87%, 93%);
+  color: hsl(341, 87%, 14%);
+}
+.link.disabled, .link[aria-disabled=true] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.link span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.display {
+  background: linear-gradient(91deg, hsl(341, 87%, 60%) 12.56%, hsl(228, 94%, 65%) 89.14%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /*# sourceMappingURL=style.css.map */

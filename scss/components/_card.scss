@@ -1,0 +1,38 @@
+@use '../tokens/tokens';
+
+.card {
+    display: flex;
+    background-color: tokens.$color-surface;
+    border-radius: tokens.$border-radius-xl;
+    box-shadow: 0 1px 6px 1px tokens.$color-opacity-on-surface-15;
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        padding: tokens.$padding-l;
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        padding: tokens.$padding-l;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: row;
+        padding: tokens.$padding-l;
+    }
+
+    &:hover {
+        background-color: tokens.$color-base;
+    }
+
+    &:active {
+        background-color: tokens.$color-primary-container;
+    }
+
+    &:disabled {
+        opacity: 60%;
+    }
+}

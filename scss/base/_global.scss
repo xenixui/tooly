@@ -34,9 +34,7 @@
 }
 
 /*Container*/
-.container {
-    max-width: 1320px;
-}
+
 
 .content {
     max-width: 720px;
@@ -98,5 +96,10 @@
 
 .gap-xxl {
     gap: tokens.$gap-xxl;
+}
+
+/*Text align*/
+.text-centered {
+    text-align: center;
 }
 

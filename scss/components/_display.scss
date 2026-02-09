@@ -1,0 +1,8 @@
+@use '../tokens/tokens';
+
+.display {
+background: linear-gradient(91deg, tokens.$color-primary 12.56%, tokens.$color-secondary 89.14%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}

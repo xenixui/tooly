@@ -1,0 +1,36 @@
+@use '../tokens/tokens';
+
+.link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: tokens.$gap-s;
+    padding: tokens.$padding-s tokens.$padding-m tokens.$padding-s tokens.$padding-m;
+    border-radius: tokens.$border-radius-s;
+    background-color: tokens.$color-opacity-on-surface-0;
+    border: solid 1px tokens.$color-opacity-on-surface-0;
+    color: tokens.$color-on-surface;
+    font-size: tokens.$font-size-16;
+    font-weight: tokens.$font-weight-semibold;
+
+    &:hover {
+        background-color: tokens.$color-base;
+        border: solid 1px tokens.$color-base;
+    }
+
+    &:active {
+        background-color: tokens.$color-primary-container;
+        border: solid 1px tokens.$color-primary-container;
+        color: tokens.$color-on-primary-container;
+    }
+
+    &.disabled, &[aria-disabled="true"] {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      span {
+        font-size: tokens.$font-size-16;
+        font-weight: tokens.$font-weight-semibold;
+      }
+}
