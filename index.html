@@ -28,32 +28,39 @@
         </div>
     </header>
     <main class="main">
-        <section class="container-s flex flex-column align-center pad-xxl gap-xl">
-            <img src="assets/image/imagotipo.svg" alt="Imagotipo Tooly">
-            <h1 class="display text-centered">Pequeñas herramientas, grandes soluciones.</h1>
-            <p class="text-centered">Traduce textos, convierte monedas y resuelve tareas básicas en segundos, sin complicaciones.</p>
-        </section>
-        <section class="container-s flex flex-row gap-l">
-            <a class="card flex-column" href="translator.html">
-                <div class="card__header">
-                    <img src="assets/image/logo-translator.svg" alt="Logo Translator">
-                </div>
-                <div class="card__body">
-                    <p>Escribe o pega el texto, selecciona los idiomas y obtén la traducción.</p>
-                </div>
-            </a>
-            <a class="card flex-column" href="converter.html">
-                <div class="card__header">
-                    <img src="assets/image/logo-converter.svg" alt="Logo Converter">
-                </div>
-                <div class="card__body">
-                    <p>Introduce una cantidad, elige las monedas y obtén el resultado.</p>
-                </div>
-            </a>
-        </section>
+        <div class="container">
+            <div class="container-inner flex-column align-center">
+                <section class="container-inner-small flex flex-column align-center gap-xl">
+                    <img src="assets/image/imagotipo.svg" alt="Imagotipo Tooly">
+                    <h1 class="display text-centered">Pequeñas herramientas, grandes soluciones.</h1>
+                    <p class="text-centered">Traduce textos, convierte monedas y resuelve tareas básicas en segundos, sin complicaciones.</p>
+                </section>
+                <section class="grid-col-2">
+                    <a class="card flex-column" href="translator.html">
+                        <div class="card__header">
+                            <img src="assets/image/logo-translator.svg" alt="Logo Translator">
+                        </div>
+                        <div class="card__body">
+                            <p>Escribe o pega el texto, selecciona los idiomas y obtén la traducción.</p>
+                        </div>
+                    </a>
+                    <a class="card flex-column" href="converter.html">
+                        <div class="card__header">
+                            <img src="assets/image/logo-converter.svg" alt="Logo Converter">
+                        </div>
+                        <div class="card__body">
+                            <p>Introduce una cantidad, elige las monedas y obtén el resultado.</p>
+                        </div>
+                    </a>
+                </section>
+            </div>
+        </div>
     </main>
-    <footer>
-
+    <footer class="footer">
+        <div class="container flex flex-row justify-left align-center  gap-s">
+            <img class = "logo-s" src="assets/image/favicon.svg" alt="Logo Tooly">
+            <span class="label">© Tooly 2026 | Todos los derechos reservados</span>
+        </div>
     </footer>
     <script type="module" src="js/app.js"></script>
 </body>

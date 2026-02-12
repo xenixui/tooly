@@ -1,0 +1,45 @@
+@use '../tokens/tokens';
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: tokens.$gap-xs;
+
+    .label {
+        color: tokens.$color-on-surface-var;
+    }
+
+    input {
+        width: 100%;
+        min-height: 40px;
+        min-width: 60px;
+        padding: tokens.$padding-xxs;
+        border-radius: tokens.$border-radius-s;
+        border: solid 1px tokens.$color-outline;
+        background-color: tokens.$color-surface;
+
+        &:hover {
+            border: solid 1px tokens.$color-on-surface-var;
+        }
+        
+        &:focus {
+            outline: none;
+            border: solid 1px tokens.$color-primary;
+        } 
+        
+        &:disabled {
+            opacity: 60%;
+            cursor: not-allowed;
+        }
+        
+        &::placeholder {
+            color: tokens.$color-opacity-on-surface-60;
+        }
+    }
+}
+
+ 
+
+
+

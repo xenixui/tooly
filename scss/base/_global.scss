@@ -1,6 +1,5 @@
 @use '../tokens/tokens';
 
-/*Flex*/
 .flex {
     display: flex
 }
@@ -33,14 +32,11 @@
     align-items: center;
 }
 
-/*Container*/
-
 
 .content {
     max-width: 720px;
 }
 
-/*Padding*/
 .pad-xxs {
     padding: tokens.$padding-xxs;
 }
@@ -69,7 +65,6 @@
     padding: tokens.$padding-xxl;
 }
 
-/*Gap*/
 .gap-xxs {
     gap: tokens.$gap-xxs;
 }
@@ -98,7 +93,10 @@
     gap: tokens.$gap-xxl;
 }
 
-/*Text align*/
+.wrap {
+    flex-wrap: wrap;
+}
+
 .text-centered {
     text-align: center;
 }

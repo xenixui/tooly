@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     background-color: tokens.$color-surface;
-    color: tokens.$color-on-surface;
+    color: tokens.$color-outline;
+    border-bottom: solid 1px tokens.$color-opacity-on-surface-15;
     padding: tokens.$padding-xl;
   }

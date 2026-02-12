@@ -1,0 +1,16 @@
+@use '../tokens/tokens';
+
+.container-inner {
+    display: flex;
+    gap: tokens.$gap-xxl;
+}
+
+.container-inner-small {
+    max-width: 720px;
+}
+
+.container {
+    @media (max-width: 992px) {
+        margin: 0;
+      }
+}

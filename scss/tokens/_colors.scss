@@ -50,20 +50,20 @@ $color-error-container: hsla(354, 61%, 90%, 1);
 $color-on-error-container: hsla(354, 61%, 14%, 1);
 
 /*Warning*/
-$color-error: hsla(28, 50%, 42%, 1);
-$color-error-hover: hsla(28, 60%, 35%, 1);
-$color-error-active: hsla(28, 60%, 26%, 1);
-$color-on-error: hsla(0, 0%, 100%, 1);
-$color-error-container: hsla(28, 60%, 89%, 1);
-$color-on-error-container: hsla(28, 60%, 11%, 1);
+$color-warning: hsla(28, 50%, 42%, 1);
+$color-warning-hover: hsla(28, 60%, 35%, 1);
+$color-warning-active: hsla(28, 60%, 26%, 1);
+$color-on-warning: hsla(0, 0%, 100%, 1);
+$color-warning-container: hsla(28, 60%, 89%, 1);
+$color-on-warning-container: hsla(28, 60%, 11%, 1);
 
 /*Success*/
-$color-error: hsla(87, 35%, 42%, 1);
-$color-error-hover: hsla(86, 40%, 33%, 1);
-$color-error-active: hsla(87, 40%, 26%, 1);
-$color-on-error: hsla(0, 0%, 100%, 1);
-$color-error-container: hsla(88, 39%, 87%, 1);
-$color-on-error-container: hsla(86, 41%, 14%, 1);
+$color-success: hsla(87, 35%, 42%, 1);
+$color-success-hover: hsla(86, 40%, 33%, 1);
+$color-success-active: hsla(87, 40%, 26%, 1);
+$color-on-success: hsla(0, 0%, 100%, 1);
+$color-success-container: hsla(88, 39%, 87%, 1);
+$color-on-success-container: hsla(86, 41%, 14%, 1);
 
 /*Opacity*/
 $color-opacity-on-surface-0: hsla(228, 6%, 10%, 0.0);

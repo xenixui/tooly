@@ -5,6 +5,11 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: tokens.$padding-xxl;
-    gap: tokens.$gap-xxl;
+    padding: tokens.$padding-xxl tokens.$padding-xl tokens.$padding-xxl tokens.$padding-xl;
+    min-height: 100vh;
+
+    @media (max-width: 992px) {
+      padding: tokens.$padding-xxl tokens.$padding-l tokens.$padding-xxl tokens.$padding-l;
+    }
   }
+

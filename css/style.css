@@ -22,6 +22,7 @@
 
 body {
   margin: 0rem;
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5 {
@@ -33,7 +34,7 @@ body {
   font-size: 1rem;
   color: hsl(228, 6%, 10%);
   background-color: hsl(227, 6%, 93%);
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 h1, h2, h3, h4 {
@@ -78,7 +79,11 @@ button {
   cursor: pointer;
 }
 
-/*Flex*/
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
 .flex {
   display: flex;
 }
@@ -111,12 +116,10 @@ button {
   align-items: center;
 }
 
-/*Container*/
 .content {
   max-width: 720px;
 }
 
-/*Padding*/
 .pad-xxs {
   padding: 0.125rem;
 }
@@ -138,14 +141,13 @@ button {
 }
 
 .pad-xl {
-  padding: 1.25rem;
+  padding: 1.5rem;
 }
 
 .pad-xxl {
   padding: 3rem;
 }
 
-/*Gap*/
 .gap-xxs {
   gap: 0.125rem;
 }
@@ -167,14 +169,17 @@ button {
 }
 
 .gap-xl {
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .gap-xxl {
   gap: 3rem;
 }
 
-/*Text align*/
+.wrap {
+  flex-wrap: wrap;
+}
+
 .text-centered {
   text-align: center;
 }
@@ -185,8 +190,9 @@ button {
   justify-content: center;
   align-items: center;
   background-color: hsl(0, 0%, 100%);
-  color: hsl(228, 6%, 10%);
-  padding: 1.25rem;
+  color: hsl(228, 6%, 65%);
+  border-bottom: solid 1px hsla(228, 6%, 10%, 0.15);
+  padding: 1.5rem;
 }
 
 .main {
@@ -194,8 +200,13 @@ button {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 3rem;
-  gap: 3rem;
+  padding: 3rem 1.5rem 3rem 1.5rem;
+  min-height: 100vh;
+}
+@media (max-width: 992px) {
+  .main {
+    padding: 3rem 1rem 3rem 1rem;
+  }
 }
 
 .footer {
@@ -204,17 +215,44 @@ button {
   justify-content: center;
   align-items: center;
   color: hsl(228, 6%, 10%);
-  padding: 1.25rem;
+  padding: 1.5rem;
 }
 
-.container {
-  max-width: 1320px;
-  padding: 0;
+.container-inner {
+  display: flex;
+  gap: 3rem;
 }
 
-.container-s {
+.container-inner-small {
   max-width: 720px;
-  padding: 0;
+}
+
+@media (max-width: 992px) {
+  .container {
+    margin: 0;
+  }
+}
+
+.grid-col-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 992px) {
+  .grid-col-2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.grid-col-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 992px) {
+  .grid-col-3 {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .index-body {
@@ -222,6 +260,7 @@ button {
   background-position: left top;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100%;
 }
 
 .link {
@@ -267,6 +306,7 @@ button {
   background-color: hsl(0, 0%, 100%);
   border-radius: 1.25rem;
   box-shadow: 0 1px 6px 1px hsla(228, 6%, 10%, 0.15);
+  min-width: 280px;
 }
 .card__header {
   display: flex;
@@ -331,6 +371,12 @@ button {
   width: auto;
 }
 
+.logo-s {
+  display: block;
+  height: 32px;
+  width: auto;
+}
+
 .vector {
   display: block;
   width: 48px;
@@ -350,44 +396,44 @@ button {
   font-size: 1rem;
   font-weight: 600;
 }
-.btn__primary {
+.btn--primary {
   background-color: hsl(341, 87%, 60%);
   border: solid 1px hsl(341, 87%, 60%);
   color: hsl(0, 0%, 100%);
 }
-.btn__primary:hover {
+.btn--primary:hover {
   background-color: hsl(341, 70%, 50%);
   border: solid 1px hsl(341, 70%, 50%);
   color: hsl(0, 0%, 100%);
 }
-.btn__primary:active {
+.btn--primary:active {
   background-color: hsl(341, 70%, 40%);
   border: solid 1px hsl(341, 70%, 40%);
   color: hsl(0, 0%, 100%);
 }
-.btn__primary:disabled {
+.btn--primary:disabled {
   background-color: hsl(341, 87%, 60%);
   border: solid 1px hsl(341, 87%, 60%);
   color: hsl(0, 0%, 100%);
   opacity: 0.6;
   cursor: none;
 }
-.btn__base {
+.btn--base {
   background-color: hsl(227, 6%, 91%);
   border: solid 1px hsl(227, 6%, 91%);
   color: hsl(228, 6%, 22%);
 }
-.btn__base:hover {
+.btn--base:hover {
   background-color: hsl(227, 6%, 83%);
   border: solid 1px hsl(227, 6%, 83%);
   color: hsl(228, 6%, 22%);
 }
-.btn__base:active {
+.btn--base:active {
   background-color: hsl(228, 6%, 74%);
   border: solid 1px hsl(228, 6%, 74%);
   color: hsl(228, 6%, 22%);
 }
-.btn__base:disabled {
+.btn--base:disabled {
   background-color: hsl(227, 6%, 91%);
   border: solid 1px hsl(227, 6%, 91%);
   color: hsl(228, 6%, 22%);

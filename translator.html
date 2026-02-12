@@ -28,76 +28,83 @@
         </div>
     </header>
     <main class="main">
-        <section class="container flex flex-column align-center pad-xxl gap-xl">
-            <img class="logo" src="assets/image/logo-translator.svg" alt="Logo Translator">
-            <div class="container-s flex flex-column">
-                <p class="text-centered">
-                    Selecciona el idioma de origen y el idioma de destino. 
-                    Escribe o pega el texto que deseas traducir y pulsa Traducir para obtener el resultado al instante.
-                </p>
+        <div class="container">
+            <div class="container-inner flex-column">
+                <section class="container flex flex-column align-center gap-xl">
+                    <img class="logo" src="assets/image/logo-translator.svg" alt="Logo Translator">
+                    <div class="container-s flex flex-column">
+                        <p class="text-centered">
+                            Selecciona el idioma de origen y el idioma de destino. 
+                            Escribe o pega el texto que deseas traducir y pulsa Traducir para obtener el resultado al instante.
+                        </p>
+                    </div>
+                </section>
+                <section class="grid-col-2">
+                    <div class="section flex-column">
+                        <div class="section__header">
+                            <h4>Texto de origen</h4>
+                        </div>
+                        <div class="section__body">
+                            <form>
+                                
+                            </form>
+                        </div>
+                        <div class="section__footer">
+                            <button class="btn btn--primary">
+                                Traducir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="section flex-column">
+                        <div class="section__header">
+                            <h4>Texto traducido</h4>
+                        </div>
+                        <div class="section__body">
+                            <form>
+                                    
+                            </form>
+                        </div>
+                        <div class="section__footer">
+                            <button class="btn btn--base">
+                                Copiar
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section class="grid-col-3">
+                    <div class="card flex-row">
+                        <div class="card__header">
+                            <img class="vector" src="assets/image/vector-translate.svg" alt="Logo Translator">
+                        </div>
+                        <div class="card__body">
+                            <p>El sistema detecta automáticamente el idioma de origen.</p>
+                        </div>
+                    </div>
+                    <div class="card flex-row">
+                        <div class="card__header">
+                            <img class="vector" src="assets/image/vector-swap.svg" alt="Logo Converter">
+                        </div>
+                        <div class="card__body">
+                            <p>Intercambio rápido entre idioma de origen y destino.</p>
+                        </div>
+                    </div>
+                    <div class="card flex-row">
+                        <div class="card__header">
+                            <img class="vector" src="assets/image/vector-copy.svg" alt="Logo Converter">
+                        </div>
+                        <div class="card__body">
+                            <p>Copia la traducción al portapapeles con un solo clic.</p>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
-        <section class="container flex flex-row gap-l">
-            <div class="section flex-column">
-                <div class="section__header">
-                    <h4>Texto de origen</h4>
-                </div>
-                <div class="section__body">
-                    <form>
-                        
-                    </form>
-                </div>
-                <div class="section__footer">
-                    <button class="btn btn__primary">
-                        Traducir
-                    </button>
-                </div>
-            </div>
-            <div class="section flex-column">
-                <div class="section__header">
-                    <h4>Texto traducido</h4>
-                </div>
-                <div class="section__body">
-                    <form>
-                            
-                    </form>
-                </div>
-                <div class="section__footer">
-                    <button class="btn btn__base">
-                        Copiar
-                    </button>
-                </div>
-            </div>
-        </section>
-        <section class="container flex flex-row gap-l">
-            <div class="card flex-row">
-                <div class="card__header">
-                    <img class="vector" src="assets/image/vector-translate.svg" alt="Logo Translator">
-                </div>
-                <div class="card__body">
-                    <p>El sistema detecta automáticamente el idioma de origen.</p>
-                </div>
-            </div>
-            <div class="card flex-row">
-                <div class="card__header">
-                    <img class="vector" src="assets/image/vector-swap.svg" alt="Logo Converter">
-                </div>
-                <div class="card__body">
-                    <p>Intercambio rápido entre idioma de origen y destino.</p>
-                </div>
-            </div>
-            <div class="card flex-row">
-                <div class="card__header">
-                    <img class="vector" src="assets/image/vector-copy.svg" alt="Logo Converter">
-                </div>
-                <div class="card__body">
-                    <p>Copia la traducción al portapapeles con un solo clic.</p>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
-    <footer>
-
+    <footer class="footer">
+        <div class="container flex flex-row justify-left align-center  gap-s">
+            <img class = "logo-s" src="assets/image/favicon.svg" alt="Logo Tooly">
+            <span class="label">© Tooly 2026 | Todos los derechos reservados</span>
+        </div>
     </footer>
     <script type="module" src="js/app.js"></script>
 </body>

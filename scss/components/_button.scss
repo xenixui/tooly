@@ -11,25 +11,25 @@
     font-size: tokens.$font-size-16;
     font-weight: tokens.$font-weight-semibold;
 
-    &__primary {
+    &--primary {
         background-color: tokens.$color-primary;
         border: solid 1px tokens.$color-primary;
         color: tokens.$color-on-primary;
     }
 
-    &__primary:hover {
+    &--primary:hover {
         background-color: tokens.$color-primary-hover;
         border: solid 1px tokens.$color-primary-hover;
         color: tokens.$color-on-primary;
     }
 
-    &__primary:active {
+    &--primary:active {
         background-color: tokens.$color-primary-active;
         border: solid 1px tokens.$color-primary-active;
         color: tokens.$color-on-primary;
     }
 
-    &__primary:disabled {
+    &--primary:disabled {
         background-color: tokens.$color-primary;
         border: solid 1px tokens.$color-primary;
         color: tokens.$color-on-primary;
@@ -37,25 +37,25 @@
         cursor: none;
     }
 
-    &__base {
+    &--base {
         background-color: tokens.$color-base;
         border: solid 1px tokens.$color-base;
         color: tokens.$color-on-base;
     }
 
-    &__base:hover {
+    &--base:hover {
         background-color: tokens.$color-base-hover;
         border: solid 1px tokens.$color-base-hover;
         color: tokens.$color-on-base;
     }
 
-    &__base:active {
+    &--base:active {
         background-color: tokens.$color-base-active;
         border: solid 1px tokens.$color-base-active;
         color: tokens.$color-on-base;
     }
 
-    &__base:disabled {
+    &--base:disabled {
         background-color: tokens.$color-base;
         border: solid 1px tokens.$color-base;
         color: tokens.$color-on-base;

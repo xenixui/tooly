@@ -1,0 +1,21 @@
+@use '../tokens/tokens';
+
+.grid-col-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: tokens.$gap-l;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.grid-col-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: tokens.$gap-l;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

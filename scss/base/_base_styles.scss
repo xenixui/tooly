@@ -5,7 +5,7 @@ body {
     font-size: tokens.$font-size-16;
     color: tokens.$color-on-surface;
     background-color: tokens.$color-surface-var;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 h1, h2, h3, h4 {
@@ -49,3 +49,8 @@ ul, ol {
 button {
     cursor: pointer;
   }
+
+.label {
+  font-size: tokens.$font-size-14;
+  font-weight: tokens.$font-weight-semibold;
+}
