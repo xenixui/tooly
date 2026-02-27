@@ -1,11 +1,13 @@
 'use strict'
 
 import { Validator } from "./validator.js";
-import { swapLanguage, copyText } from "./modules.js";
+import { swapLanguage, copyText, showMenu } from "./modules.js";
+import { TOOLS } from "./config.js";
 
 export class TranslatorComponent {
     constructor(service) {
         this.service = service;
+        this.tools = TOOLS;
 
         this.elements = {
             formWrapper : document.getElementById ('formWrapper'),
@@ -16,7 +18,7 @@ export class TranslatorComponent {
             btnTranslate: document.getElementById('btnTranslate'),
             btnSwap: document.getElementById('btnSwap'),
             btnCopy: document.getElementById('btnCopy'),
-            btnMenu: document.getElementById('btn-menu')
+            btnMenu: document.getElementById('btn-menu'),
         }; 
 
         this.init();
@@ -44,14 +46,13 @@ export class TranslatorComponent {
                 this.elements.formWrapper);
         });
 
-        this.btnMenu.addEventListener('click', () => {
-            showMenu(this.tools, this.btnMenu);
+        this.elements.btnMenu.addEventListener('click', () => {
+            showMenu(this.tools, this.elements.btnMenu);
         })
 
     }
     
     async translateText() {
-
             const formWrapper = this.elements.formWrapper;
             const lanOrigin = this.elements.lanOrigin;
             const txtOrigin = this.elements.txtOrigin;

@@ -1,9 +1,7 @@
 @use '../tokens/tokens';
 
-.menu {
+.dropdown {
     position: absolute;
-    top: 38px;
-    right: 0;
     display: none;
     flex-direction: column;
     background-color: tokens.$color-surface-var;
@@ -13,7 +11,6 @@
     box-shadow: 0 1px 6px 1px tokens.$color-opacity-on-surface-15;
     width: auto;
     z-index: 1000;
-    list-style: none;
 
     &--active {
         display: flex;

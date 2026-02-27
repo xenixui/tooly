@@ -2,6 +2,7 @@
 
 import {getArrayLanguages} from '../js/languages.js';
 import { Validator } from "./validator.js";
+import { TOOLS } from './config.js';
 
 
 /*Generar listado de idiomas en el select a aprtir de la constante LANGUAGES*/
@@ -63,7 +64,7 @@ export function showMenu (tools, toggleButton) {
     let menu = document.querySelector('.menu'); 
 
     if (!menu) {
-        menu = document.createElement ('div');
+        menu = document.createElement ('ul');
         menu.classList.add ("menu");
 
         for (const tool of tools) {
@@ -82,12 +83,22 @@ export function showMenu (tools, toggleButton) {
 
 export function activateURL() {
     const urlActual = window.location.href;
+
     const header = document.querySelector('.header');
-    
-    const urlList = header. querySelectorAll('a');
-    for (const url of urlList) {
-        if (urlActual === url.href) {
-            url.classList.add('active');
+    const urlListHeader = header.querySelectorAll('a');
+    const btnMenu = document.getElementById('btn-menu');
+
+    const tools = TOOLS;
+
+    for (const urlHeader of urlListHeader) {
+        if (urlActual === urlHeader.href) {
+            urlHeader.classList.add('active');
+        }
+    }
+   
+    for (const tool of tools){
+        if (urlActual.includes(tool.href)) {
+            btnMenu.classList.add('active');
         }
     }
 }

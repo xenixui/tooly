@@ -34,3 +34,9 @@
         font-weight: tokens.$font-weight-semibold;
       }
 }
+
+.link.active {
+  background-color: tokens.$color-primary-container;
+  border: solid 1px tokens.$color-primary-container;
+  color: tokens.$color-on-primary-container;
+}
