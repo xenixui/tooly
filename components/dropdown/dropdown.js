@@ -1,41 +1,52 @@
-class Dropdown extends HTMLElement {
+export class Dropdown extends HTMLElement {
     constructor () {
         super();
         this.attachShadow({ mode: 'open' });
         this._isOpen = false;
+        this._ready = null;
         }
 
-        async render() {
-            const response = await fetch('dropdown.html');
-            const htmlContent = await response.text();
+        connectedCallback() {
+            this._ready = this._render();
+        }
 
+        async _render() {
+            const response = await fetch('./dropdown.html');
+            
+            if (!response.ok) {
+                console.error('No se pudo cargar dropdown.html:', response.status);
+                return;
+            }
+            const htmlContent = await response.text();
             this.shadowRoot.innerHTML = htmlContent;
         }
 
-        openDrodown(trigger) {
-            const dropdown = this.shadowRoot.querySelector('.dropdown');
+        async openDropdown(trigger) {
+            await this._ready;
 
-            const position = this.calcPosition();
+            const dropdown = this.shadowRoot.querySelector('.dropdown');
+            const position = this.calcPosition(trigger);
 
             dropdown.style.top = `${position.top}px`;
             dropdown.style.left = `${position.left}px`;
 
             this._isOpen = true;
-            dropdown.classList.add('active');
+            dropdown.classList.add('dropdown--active');
         }
 
-        closeDropdown(trigger) {
+       async closeDropdown() {
+            await this._ready;
+
             const dropdown = this.shadowRoot.querySelector('.dropdown');
-
             this._isOpen = false;
-            dropdown.classList.remove('active');
+            dropdown.classList.remove('dropdown--active');
         }
 
-        calcPosition() {
+        calcPosition(trigger) {
             const triggerData = trigger.getBoundingClientRect();
 
-            const topPosition = 0;
-            const leftPosition = 0;
+            let topPosition = 0;
+            let leftPosition = 0;
 
             const viewportHeight = window.innerHeight;
             const viewportWidth = window.innerWidth;
@@ -59,4 +70,4 @@ class Dropdown extends HTMLElement {
         }
 }
 
-customElements.define('my-dropdown', Dropdown);
+window.customElements.define('my-dropdown', Dropdown);
