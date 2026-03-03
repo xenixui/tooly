@@ -3,6 +3,8 @@ export class Dropdown extends HTMLElement {
         super();
         this.attachShadow({ mode: 'open' });
         this._isOpen = false;
+        this._ready = null;
+        this._reposition = this._reposition.bind(this);
         }
 
         connectedCallback() {
@@ -10,27 +12,54 @@ export class Dropdown extends HTMLElement {
         }
 
         async _render() {
-            const response = await fetch('./dropdown.html');
+            const response = await fetch('/components/dropdown/dropdown.html');
             
             if (!response.ok) {
-                console.error('No se pudo cargar dropdown.html:', response.status);
+                alert('No se pudo cargar dropdown.html');
                 return;
             }
+
             const htmlContent = await response.text();
-            this.shadowRoot.innerHTML = htmlContent;
+
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '/components/dropdown/dropdown.css';
+
+
+            this.shadowRoot.innerHTML = '';
+            this.shadowRoot.appendChild(link);
+            this.shadowRoot.innerHTML += htmlContent;
+
+        }
+
+        _reposition() {
+            if (!this._isOpen || !this._triggerEl) return;
+
+            const dropdown = this.shadowRoot.querySelector('.dropdown');
+            if (!dropdown) return;
+        
+            const pos = this.calcPosition(this._triggerEl);
+            dropdown.style.top  = `${pos.top}px`;
+            dropdown.style.left = `${pos.left}px`;
         }
 
         async openDropdown(trigger) {
             await this._ready;
 
-            const dropdown = this.shadowRoot.querySelector('.dropdown');
-            const position = this.calcPosition(trigger);
+            this._triggerEl = trigger;
 
-            dropdown.style.top = `${position.top}px`;
-            dropdown.style.left = `${position.left}px`;
+            const dropdown = this.shadowRoot.querySelector('.dropdown');
+            if (!dropdown) return;
+
+            const pos = this.calcPosition(this._triggerEl);
+            dropdown.style.top  = `${pos.top}px`;
+            dropdown.style.left = `${pos.left}px`;
 
             this._isOpen = true;
             dropdown.classList.add('dropdown--active');
+
+            window.addEventListener('resize', this._reposition, { passive: true });
+            document.addEventListener('scroll', this._reposition, { passive: true, capture: true });
         }
 
        async closeDropdown() {
@@ -42,31 +71,14 @@ export class Dropdown extends HTMLElement {
         }
 
         calcPosition(trigger) {
-            const triggerData = trigger.getBoundingClientRect();
-
-            let topPosition = 0;
-            let leftPosition = 0;
-
-            const viewportHeight = window.innerHeight;
-            const viewportWidth = window.innerWidth;
-
-            if (triggerData.top >= viewportHeight/2) {
-                topPosition = triggerData.bottom + triggerData.height;
-            } else {
-                topPosition = triggerData.top + triggerData.height;
-            }
-
-            if (triggerData.left >= viewportWidth/2) {
-                leftPosition = triggerData.right + triggerData.width;
-            } else {
-                leftPosition = triggerData.left;
-            }
-            
+            const r = trigger.getBoundingClientRect();
+        
             return {
-                top: topPosition,
-                left: leftPosition
+                top: r.bottom + 4,
+                left: r.left
             };
         }
+        
 }
 
 window.customElements.define('my-dropdown', Dropdown);

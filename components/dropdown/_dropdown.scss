@@ -1,7 +1,14 @@
-@use '../tokens/tokens';
+@use '../../scss/tokens/tokens';
+
+my-dropdown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
 
 .dropdown {
-    position: absolute;
+    position: fixed;
     display: none;
     flex-direction: column;
     background-color: tokens.$color-surface-var;

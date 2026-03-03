@@ -1,0 +1,40 @@
+/*Primary*/
+/*Secondary*/
+/*Tertiary*/
+/*Base*/
+/*Surface*/
+/*Error*/
+/*Warning*/
+/*Success*/
+/*Opacity*/
+/*Font size*/
+/*Font family*/
+/*Font weight and style*/
+/*Padding*/
+/*Margin*/
+/*Gap*/
+/*Border-radius*/
+my-dropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.dropdown {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  background-color: hsl(227, 6%, 93%);
+  border-radius: 1.25rem;
+  padding: 0.75rem;
+  gap: 0.25rem;
+  box-shadow: 0 1px 6px 1px hsla(228, 6%, 10%, 0.15);
+  width: auto;
+  z-index: 1000;
+}
+.dropdown--active {
+  display: flex;
+}
+
+/*# sourceMappingURL=dropdown.css.map */
