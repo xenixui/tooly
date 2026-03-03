@@ -3,7 +3,6 @@ export class Dropdown extends HTMLElement {
         super();
         this.attachShadow({ mode: 'open' });
         this._isOpen = false;
-        this._ready = null;
         }
 
         connectedCallback() {
