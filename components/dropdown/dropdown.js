@@ -43,7 +43,7 @@ export class Dropdown extends HTMLElement {
             dropdown.style.left = `${pos.left}px`;
         }
 
-        async openDropdown(trigger) {
+        async openDropdown(trigger, content) {
             await this._ready;
 
             this._triggerEl = trigger;
@@ -57,6 +57,7 @@ export class Dropdown extends HTMLElement {
 
             this._isOpen = true;
             dropdown.classList.add('dropdown--active');
+            dropdown.innerHTML = content;
 
             window.addEventListener('resize', this._reposition, { passive: true });
             document.addEventListener('scroll', this._reposition, { passive: true, capture: true });

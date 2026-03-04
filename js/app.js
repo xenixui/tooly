@@ -43,6 +43,6 @@ btnDropdown.addEventListener('click', async () => {
    if(dropdown._isOpen) {
     await dropdown.closeDropdown(btnDropdown);
    } else {
-    await dropdown.openDropdown(btnDropdown);
+    await dropdown.openDropdown(btnDropdown, 'Dropdown funcionando');
    }
 });

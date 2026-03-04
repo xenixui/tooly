@@ -1,0 +1,55 @@
+/*Primary*/
+/*Secondary*/
+/*Tertiary*/
+/*Base*/
+/*Surface*/
+/*Error*/
+/*Warning*/
+/*Success*/
+/*Opacity*/
+/*Font size*/
+/*Font family*/
+/*Font weight and style*/
+/*Padding*/
+/*Margin*/
+/*Gap*/
+/*Border-radius*/
+.menu {
+  display: flex;
+  background-color: red;
+  gap: 0.25rem;
+  list-style: none;
+}
+.menu__link, .menu__button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  background-color: hsla(228, 6%, 10%, 0);
+  border: solid 1px hsla(228, 6%, 10%, 0);
+  color: hsl(228, 6%, 10%);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.menu__link:hover, .menu__button:hover {
+  background-color: hsl(227, 6%, 91%);
+  border: solid 1px hsl(227, 6%, 91%);
+}
+.menu__link:active, .menu__link.active, .menu__button:active, .menu__button.active {
+  background-color: hsl(341, 87%, 93%);
+  border: solid 1px hsl(341, 87%, 93%);
+  color: hsl(341, 87%, 14%);
+}
+.menu__link.disabled, .menu__link[aria-disabled=true], .menu__button.disabled, .menu__button[aria-disabled=true] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.menu__span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=menu.css.map */
