@@ -25,10 +25,12 @@ export class Dropdown extends HTMLElement {
             link.rel = 'stylesheet';
             link.href = '/components/dropdown/dropdown.css';
 
+            const div = document.createElement('div');
+            div.innerHTML = htmlContent;
 
             this.shadowRoot.innerHTML = '';
             this.shadowRoot.appendChild(link);
-            this.shadowRoot.innerHTML += htmlContent;
+            this.shadowRoot.append(div);
 
         }
 
@@ -57,7 +59,13 @@ export class Dropdown extends HTMLElement {
 
             this._isOpen = true;
             dropdown.classList.add('dropdown--active');
-            dropdown.innerHTML = content;
+    
+            dropdown.innerHTML = '';
+            if (content instanceof HTMLElement) {
+                dropdown.appendChild(content);
+            } else {
+                dropdown.innerHTML = content;
+            }
 
             window.addEventListener('resize', this._reposition, { passive: true });
             document.addEventListener('scroll', this._reposition, { passive: true, capture: true });

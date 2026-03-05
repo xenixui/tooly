@@ -16,7 +16,6 @@
 /*Border-radius*/
 .menu {
   display: flex;
-  background-color: red;
   gap: 0.25rem;
   list-style: none;
 }
@@ -32,6 +31,7 @@
   color: hsl(228, 6%, 10%);
   font-size: 1rem;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
 }
 .menu__link:hover, .menu__button:hover {

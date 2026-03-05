@@ -39,10 +39,17 @@ const btnDropdown = document.getElementById('btnDropdown');
 const dropdown = document.createElement('my-dropdown');
 document.body.appendChild(dropdown);
 
+const menu = document.createElement('my-menu');
+document.body.appendChild(menu);
+await menu.showMenu(TOOLS);
+
 btnDropdown.addEventListener('click', async () => {
    if(dropdown._isOpen) {
     await dropdown.closeDropdown(btnDropdown);
    } else {
-    await dropdown.openDropdown(btnDropdown, 'Dropdown funcionando');
+    await dropdown.openDropdown(btnDropdown, menu);
+    await menu.showMenu(TOOLS);
    }
 });
+
+ 

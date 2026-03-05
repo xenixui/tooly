@@ -2,7 +2,6 @@
 
 .menu {
     display: flex;
-    background-color: red;
     gap: tokens.$gap-xs;
     list-style: none;
 
@@ -19,7 +18,9 @@
         color: tokens.$color-on-surface;
         font-size: tokens.$font-size-16;
         font-weight: tokens.$font-weight-semibold;
+        text-decoration: none;
         cursor: pointer;
+        
 
         &:hover {
             background-color: tokens.$color-base;
