@@ -33,13 +33,14 @@ constructor () {
 
         }
 
-    async showMenu(items) {
+    async showMenu(items, flexDirection = 'row') {
         await this._ready;
 
         let menu = this.shadowRoot.querySelector('.menu');
         if (!menu) return;
         
         menu.innerHTML = '';
+        menu.style.flexDirection = flexDirection;
 
         for(const item of items) {
             const menuItem = document.createElement ('li');

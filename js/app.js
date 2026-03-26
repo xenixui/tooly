@@ -41,14 +41,13 @@ document.body.appendChild(dropdown);
 
 const menu = document.createElement('my-menu');
 document.body.appendChild(menu);
-await menu.showMenu(TOOLS);
 
 btnDropdown.addEventListener('click', async () => {
    if(dropdown._isOpen) {
     await dropdown.closeDropdown(btnDropdown);
    } else {
     await dropdown.openDropdown(btnDropdown, menu);
-    await menu.showMenu(TOOLS);
+    await menu.showMenu(TOOLS, 'column');
    }
 });
 

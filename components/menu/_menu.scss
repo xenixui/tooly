@@ -4,6 +4,8 @@
     display: flex;
     gap: tokens.$gap-xs;
     list-style: none;
+    margin: tokens.$margin-none;
+    padding: tokens.$padding-none; 
 
     &__link,
     &__button {
