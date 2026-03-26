@@ -11,3 +11,7 @@ export const TOOLS = [
     {name: "Converter", href: "converter.html"}
 ]
 
+export const LINKS = [
+    {name: "Inicio", href: "index.html"},
+    {name: "Contacto", href: "contact.html"}
+]
