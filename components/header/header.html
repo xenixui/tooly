@@ -1,15 +1,19 @@
 <header class="header">
-        <div class="container flex flex-row justify-auto align-center">
+        <nav class="container flex flex-row justify-auto align-center">
             <a href="index.html">
-                <img src="assets/image/logo-tooly.svg" alt="Logo Tooly">
+            <img src="{{srcLogo}}" alt="{{altLogo}}">
             </a>
-            <div class="flex flex-row justify-left gap-s">
-                <a class="link" href="index.html">Inicio</a>
-                <button id="btn-menu" class="link">
-                    Herramientas
-                    <span class="material-symbols-outlined">stat_minus_1</span>
-                </button>
-                <a class="link" href="contact.html">Contacto</a>
-            </div>
-        </div>
-    </header>
+            <nav id="desktopMenu" class="flex flex-row justify-left gap-s">
+            <a class="link" href="index.html">Inicio</a>
+            <a id="btnDropdown" class="link">
+                Herramientas
+                <span class="material-symbols-outlined">stat_minus_1</span>
+            </a>
+            <a class="link" href="contact.html">Contacto</a>
+            
+            </nav>
+            <button id="mobileMenu" class="btn btn--base btn--icon-only btn--hidden">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </nav>
+</header>

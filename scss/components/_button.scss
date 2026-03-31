@@ -70,6 +70,10 @@
     max-height: 40px;
     }
 
+    &--hidden {
+        display: none;
+    }
+
     span {
     font-size: tokens.$font-size-16;
     font-weight: tokens.$font-weight-semibold;
