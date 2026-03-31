@@ -81,25 +81,3 @@ export function showMenu (tools, toggleButton) {
     return menu;
 }
 
-export function activateURL() {
-    const urlActual = window.location.href;
-
-    const header = document.querySelector('.header');
-    const urlListHeader = header.querySelectorAll('a');
-    const btnMenu = document.getElementById('btn-menu');
-
-    const tools = TOOLS;
-
-    for (const urlHeader of urlListHeader) {
-        if (urlActual === urlHeader.href) {
-            urlHeader.classList.add('active');
-        }
-    }
-   
-    for (const tool of tools){
-        if (urlActual.includes(tool.href)) {
-            btnMenu.classList.add('active');
-        }
-    }
-}
-

@@ -1,3 +1,5 @@
+'use strict';
+
 export class Dropdown extends HTMLElement {
     constructor () {
         super();
@@ -45,6 +47,15 @@ export class Dropdown extends HTMLElement {
             dropdown.style.left = `${pos.left}px`;
         }
 
+        _outsideClickClose(e) {
+            const clickedInsideHost  = e.composedPath().includes(this);
+            const clickedInsideTrigger = this._triggerEl && e.composedPath().includes(this._triggerEl);
+
+            if (!clickedInsideHost && !clickedInsideTrigger) {
+                this.closeDropdown();
+            }
+        }
+
         async openDropdown(trigger, content) {
             await this._ready;
 
@@ -69,6 +80,10 @@ export class Dropdown extends HTMLElement {
 
             window.addEventListener('resize', this._reposition, { passive: true });
             document.addEventListener('scroll', this._reposition, { passive: true, capture: true });
+
+            setTimeout(() => {
+                document.addEventListener('pointerdown', this._outsideClickClose);
+            }, 0);
         }
 
        async closeDropdown() {
@@ -77,6 +92,10 @@ export class Dropdown extends HTMLElement {
             const dropdown = this.shadowRoot.querySelector('.dropdown');
             this._isOpen = false;
             dropdown.classList.remove('dropdown--active');
+
+             document.removeEventListener('pointerdown', this._onOutsideClick);
+            window.removeEventListener('resize', this._reposition);
+            document.removeEventListener('scroll', this._reposition, { capture: true });
         }
 
         calcPosition(trigger) {
