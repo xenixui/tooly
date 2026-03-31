@@ -1,4 +1,7 @@
 @use '../../scss/tokens/tokens';
+@use '../../scss/base/global';
+@use '../../scss/layout/layout';
+@use '../../scss/components/components';
 
 .header {
   display: flex;
