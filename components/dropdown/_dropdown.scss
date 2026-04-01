@@ -16,6 +16,7 @@ my-dropdown {
     padding: tokens.$padding-m;
     gap: tokens.$gap-xs;
     box-shadow: 0 1px 6px 1px tokens.$color-opacity-on-surface-15;
+    min-width: 160px;
     width: auto;
     z-index: 1000;
 

@@ -7,6 +7,7 @@ export class Dropdown extends HTMLElement {
         this._isOpen = false;
         this._ready = null;
         this._reposition = this._reposition.bind(this);
+        this._outsideClickClose = this._outsideClickClose.bind(this);
         }
 
         connectedCallback() {
@@ -61,6 +62,11 @@ export class Dropdown extends HTMLElement {
 
             this._triggerEl = trigger;
 
+            if (!this._triggerEl) {
+                this.closeDropdown();
+                return;
+            }
+
             const dropdown = this.shadowRoot.querySelector('.dropdown');
             if (!dropdown) return;
 
@@ -78,6 +84,12 @@ export class Dropdown extends HTMLElement {
                 dropdown.innerHTML = content;
             }
 
+            this._triggerObserver = new IntersectionObserver(([entry]) => {
+                if (!entry.isIntersecting) this.closeDropdown();
+                    }, { threshold: 0 });
+                    this._triggerObserver.observe(this._triggerEl);
+            
+
             window.addEventListener('resize', this._reposition, { passive: true });
             document.addEventListener('scroll', this._reposition, { passive: true, capture: true });
 
@@ -93,18 +105,32 @@ export class Dropdown extends HTMLElement {
             this._isOpen = false;
             dropdown.classList.remove('dropdown--active');
 
-             document.removeEventListener('pointerdown', this._onOutsideClick);
+            if (this._triggerObserver) {
+                this._triggerObserver.disconnect();
+                this._triggerObserver = null;
+            }
+
+            document.removeEventListener('pointerdown', this._outsideClickClose);
             window.removeEventListener('resize', this._reposition);
             document.removeEventListener('scroll', this._reposition, { capture: true });
         }
 
         calcPosition(trigger) {
             const r = trigger.getBoundingClientRect();
-        
-            return {
-                top: r.bottom + 4,
-                left: r.left
-            };
+            const dropdown = this.shadowRoot.querySelector('.dropdown');
+            const dropdownWidth = parseFloat(getComputedStyle(dropdown).minWidth) || 160;
+            const dropdownHeight = dropdown.offsetHeight || 100;
+            const margin = 8;
+            
+            const leftAligned = r.left;
+            const rightAligned = r.right - dropdownWidth;
+            const fitsRight = r.left + dropdownWidth + margin <= window.innerWidth;
+            const left = fitsRight ? leftAligned : Math.max(margin, rightAligned);
+
+            const fitsBelow = r.bottom + dropdownHeight + margin <= window.innerHeight;
+            const top = fitsBelow ? r.bottom + 4 : r.top - dropdownHeight - 4;
+
+            return { top, left };
         }
         
 }

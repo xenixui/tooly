@@ -13,5 +13,6 @@ export const TOOLS = [
 
 export const LINKS = [
     {name: "Inicio", href: "index.html"},
+    {name: "Herramientas", href: ""},
     {name: "Contacto", href: "contact.html"}
 ]

@@ -227,6 +227,14 @@ button {
 @media (max-width: 992px) {
   .container {
     margin: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 560px) {
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
   }
 }
 
@@ -684,5 +692,3 @@ button {
   background-color: hsl(88, 39%, 87%);
   color: hsl(86, 41%, 14%);
 }
-
-/*# sourceMappingURL=style.css.map */

@@ -108,26 +108,49 @@ constructor () {
         const btnMenu = this.shadowRoot.getElementById('mobileMenu');
         const desktopMenu = this.shadowRoot.getElementById('desktopMenu');
 
+        this._updateMobileMenuState();
+
+        const dropdown = document.createElement('my-dropdown');
+        document.body.appendChild(dropdown);
+
+        const menu = document.createElement('my-menu');
+        document.body.appendChild(menu);
+        
+        btnMenu.addEventListener('click', async () => {
+            if(dropdown._isOpen) {
+                await dropdown.closeDropdown(btnMenu);
+            } else {
+                await dropdown.openDropdown(btnMenu, menu);
+                await menu.showMenu(LINKS, 'column');
+            }
+        });
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(async () => {      
+                this._updateMobileMenuState();
+
+                if (dropdown._isOpen) {                     
+                    await dropdown.closeDropdown(btnMenu);  
+                }                                           
+                    }, 250);
+        });
+    }
+
+    _updateMobileMenuState() {
+        const mobileBreakpoint = 768;
+        const btnMenu = this.shadowRoot.getElementById('mobileMenu');
+        const desktopMenu = this.shadowRoot.getElementById('desktopMenu');
+
         if (window.innerWidth <= mobileBreakpoint) {
             btnMenu.classList.remove('btn--hidden');
             desktopMenu.classList.add('hidden');
-
-            const dropdown = document.createElement('my-dropdown');
-            document.body.appendChild(dropdown);
-
-            const menu = document.createElement('my-menu');
-            document.body.appendChild(menu);
-            
-            btnMenu.addEventListener('click', async () => {
-                if(dropdown._isOpen) {
-                    await dropdown.closeDropdown(btnMenu);
-                } else {
-                    await dropdown.openDropdown(btnMenu, menu);
-                    await menu.showMenu(LINKS, 'column');
-                }
-        });
+        } else {
+            btnMenu.classList.add('btn--hidden');
+            desktopMenu.classList.remove('hidden');
+        }
     }
-}
 }
 
 window.customElements.define('my-header', Header);
