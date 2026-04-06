@@ -1,11 +1,11 @@
 'use strict';
 
 export class Menu extends HTMLElement {
-constructor () {
-    super();
-    this.attachShadow({ mode: 'open' });
-    this._ready = null;
-}
+    constructor () {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this._ready = null;
+    }
 
     connectedCallback() {
         if (this._ready) return;

@@ -46,10 +46,6 @@ export class TranslatorComponent {
                 this.elements.formWrapper);
         });
 
-        this.elements.btnMenu.addEventListener('click', () => {
-            showMenu(this.tools, this.elements.btnMenu);
-        })
-
     }
     
     async translateText() {
