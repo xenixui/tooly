@@ -4,11 +4,11 @@ import { TOOLS } from '../../js/config.js';
 import { LINKS } from '../../js/config.js';
 
 export class Header extends HTMLElement {
-constructor () {
-    super();
-    this._ready = null;
-    this.attachShadow({ mode: 'open' });
-    this._tools = TOOLS;
+    constructor () {
+        super();
+        this._ready = null;
+        this.attachShadow({ mode: 'open' });
+        this._tools = TOOLS;
     }
 
     connectedCallback() {

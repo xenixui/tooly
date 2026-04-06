@@ -40,6 +40,18 @@
         &::placeholder {
             color: tokens.$color-opacity-on-surface-60;
         }
+
+        &[type="number"] {
+            appearance: none;
+            -moz-appearance: textfield;
+            padding-left: tokens.$padding-m;
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
     }
 }
 
