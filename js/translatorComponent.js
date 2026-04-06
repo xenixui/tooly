@@ -1,7 +1,7 @@
 'use strict'
 
 import { Validator } from "./validator.js";
-import { swapLanguage, copyText, showMenu } from "./modules.js";
+import { swapLanguage, copyText} from "./modules.js";
 import { TOOLS } from "./config.js";
 
 export class TranslatorComponent {

@@ -230,19 +230,6 @@ button {
     width: 100%;
   }
 }
-@media (max-width: 560px) {
-  .container {
-    width: 100% !important;
-    max-width: none !important;
-    padding: 0 !important;
-  }
-}
-
-@media (max-width: 640px) {
-  .s-container-fluid {
-    width: 100%;
-  }
-}
 
 .grid-col-2 {
   display: grid;
@@ -534,6 +521,15 @@ button {
 .input-wrapper input::placeholder {
   color: hsla(228, 6%, 10%, 0.6);
 }
+.input-wrapper input[type=number] {
+  appearance: none;
+  -moz-appearance: textfield;
+  padding-left: 0.75rem;
+}
+.input-wrapper input[type=number]::-webkit-outer-spin-button, .input-wrapper input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .select-wrapper {
   display: flex;
@@ -692,3 +688,5 @@ button {
   background-color: hsl(88, 39%, 87%);
   color: hsl(86, 41%, 14%);
 }
+
+/*# sourceMappingURL=style.css.map */

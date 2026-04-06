@@ -26,6 +26,8 @@ export function generateLanguages() {
     }
 }
 
+
+
 export function swapLanguage(node, lanOrigin, txtOrigin, lanTranslate, txtTranslate) {
     
     try {
