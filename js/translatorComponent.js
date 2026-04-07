@@ -2,12 +2,10 @@
 
 import { Validator } from "./validator.js";
 import { swapLanguage, copyText} from "./modules.js";
-import { TOOLS } from "./config.js";
 
 export class TranslatorComponent {
     constructor(service) {
         this.service = service;
-        this.tools = TOOLS;
 
         this.elements = {
             formWrapper : document.getElementById ('formWrapper'),
@@ -18,7 +16,6 @@ export class TranslatorComponent {
             btnTranslate: document.getElementById('btnTranslate'),
             btnSwap: document.getElementById('btnSwap'),
             btnCopy: document.getElementById('btnCopy'),
-            btnMenu: document.getElementById('btn-menu'),
         }; 
 
         this.init();

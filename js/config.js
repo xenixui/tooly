@@ -19,6 +19,6 @@ export const TOOLS = [
 
 export const LINKS = [
     {name: "Inicio", href: "index.html"},
-    {name: "Herramientas", href: ""},
+    {name: "Herramientas", submenu: "tools"},
     {name: "Contacto", href: "contact.html"}
 ]
