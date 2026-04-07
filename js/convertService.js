@@ -3,7 +3,7 @@
 import {CONVERT_API_CONFIG}  from './config.js';
 import { generateCurrencies } from './modules.js';
 
-export class convertService {
+export class ConvertService {
     constructor() {
         generateCurrencies();
     }
@@ -11,8 +11,8 @@ export class convertService {
     buildURL(divOrigin, mountOrigin, divConvert) {
 
         const BASE_URL = CONVERT_API_CONFIG.BASE_URL;
-        const API_KEY = TRANSLATE_API_CONFIG.API_KEY;
-        const TYPE = TRANSLATE_API_CONFIG.PAIR;
+        const API_KEY = CONVERT_API_CONFIG.API_KEY;
+        const TYPE = CONVERT_API_CONFIG.TYPE;
 
         return `${BASE_URL}/${API_KEY}/${TYPE}/${divOrigin}/${divConvert}/${mountOrigin}`; 
 

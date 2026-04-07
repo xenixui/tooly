@@ -53,4 +53,25 @@ export class Validator {
         }
         return true;
     }
+
+    static validateCurrency(divOrigin, divConvert, node) {
+        const divOriginValue = divOrigin.value;
+        const divConvertValue = divConvert.value;
+
+        if (!divConvertValue && !divConvertValue ) {
+            this.showMessage (node, 'Por favor, elige la modeda de origen y la de destino.','warning');
+            return false;
+        }
+        
+        if (!divOriginValue) {
+            this.showMessage (node, 'Por favor, elige la moneda de origen.','warning');
+            return false;
+        }
+
+        if (!divConvertValue) {
+            this.showMessage (node, 'Por favor, elige la moneda de destino.','warning');
+            return false;
+        }
+        return true;
+    }
 }

@@ -1,7 +1,9 @@
 'use strict'
 
 import {getArrayLanguages} from '../js/languages.js';
+import {getArrayCurrencies} from '../js/currencies.js';
 import { Validator } from "./validator.js";
+import {CONVERT_API_CONFIG}  from './config.js';
 
 export function generateLanguages() {
     const languages = getArrayLanguages();
@@ -23,20 +25,29 @@ export function generateLanguages() {
     }
 }
 
-export function generateCurrencies(supportedCodes) {
-    const currencies = getArrayCurrencies(supportedCodes);
+export async function generateCurrencies() {
+
+    const BASE_URL = CONVERT_API_CONFIG.BASE_URL;
+    const API_KEY = CONVERT_API_CONFIG.API_KEY;
+
+    const response = await fetch(`${BASE_URL}/${API_KEY}/codes`);
+    const data = await response.json();
+
+    if (data.result !== 'success') throw new Error('Error al obtener monedas');
+
+    const currencies = getArrayCurrencies(data.supported_codes);
     let divOrigin = document.getElementById('divOrigin');
     let divConvert = document.getElementById('divConvert');
 
     for (const currency of currencies) {
         const optionOrigin = document.createElement('option');
         optionOrigin.value = currency.code;
-        optionOrigin.textContent = currency.name;
+        optionOrigin.textContent = `${currency.code} - ${currency.name}`;
         divOrigin.appendChild(optionOrigin);
 
         const optionConvert = document.createElement('option');
         optionConvert.value = currency.code;
-        optionConvert.textContent = currency.name;
+        optionConvert.textContent = `${currency.code} - ${currency.name}`;
         divConvert.appendChild(optionConvert);
     }
 }
@@ -63,6 +74,29 @@ export function swapLanguage(node, lanOrigin, txtOrigin, lanTranslate, txtTransl
     catch(error) {
         Validator.showMessage (node, error.message,'warning');
     }   
+}
+
+export function swapCurrency(node, divOrigin, mountOrigin, divConvert, mountConvert) {
+    
+    try {
+        const refDiv = divOrigin.value;
+        const refMount = mountOrigin.value;
+
+        if (Validator.validateCurrency(divOrigin, divConvert, node)) {
+            divOrigin.value = divConvert.value;
+            divConvert.value = refDiv;
+            Validator.clearMessages(node);
+        }
+
+        if (Validator.validateText(mountOrigin, node)) {
+            mountOrigin.value = mountConvert.value;
+            mountConvert.value = refMount;
+            Validator.clearMessages(node);
+        }
+    }
+    catch(error) {
+        Validator.showMessage(node, error.message, 'warning');
+    }
 }
 
 export function copyText(text, node) {
