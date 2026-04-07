@@ -1,6 +1,6 @@
 'use strict'
 
-import {CONVERT_API_CONFIG_API_CONFIG}  from './config.js';
+import {CONVERT_API_CONFIG}  from './config.js';
 import { generateCurrencies } from './modules.js';
 
 export class convertService {

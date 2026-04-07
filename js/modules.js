@@ -2,10 +2,7 @@
 
 import {getArrayLanguages} from '../js/languages.js';
 import { Validator } from "./validator.js";
-import { TOOLS } from './config.js';
 
-
-/*Generar listado de idiomas en el select a aprtir de la constante LANGUAGES*/
 export function generateLanguages() {
     const languages = getArrayLanguages();
     let lanOrigin = document.getElementById('lanOrigin');
@@ -26,7 +23,23 @@ export function generateLanguages() {
     }
 }
 
+export function generateCurrencies(supportedCodes) {
+    const currencies = getArrayCurrencies(supportedCodes);
+    let divOrigin = document.getElementById('divOrigin');
+    let divConvert = document.getElementById('divConvert');
 
+    for (const currency of currencies) {
+        const optionOrigin = document.createElement('option');
+        optionOrigin.value = currency.code;
+        optionOrigin.textContent = currency.name;
+        divOrigin.appendChild(optionOrigin);
+
+        const optionConvert = document.createElement('option');
+        optionConvert.value = currency.code;
+        optionConvert.textContent = currency.name;
+        divConvert.appendChild(optionConvert);
+    }
+}
 
 export function swapLanguage(node, lanOrigin, txtOrigin, lanTranslate, txtTranslate) {
     
