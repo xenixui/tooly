@@ -36,6 +36,13 @@
             color: tokens.$color-on-primary-container;
         }
 
+        &.active_dropdown {
+            background-color: tokens.$color-primary-container;
+            border: solid 1px tokens.$color-primary-container;
+            color: tokens.$color-on-primary-container;
+            border-radius: tokens.$border-radius-s tokens.$border-radius-s 0 0;
+        }
+
         &.disabled, &[aria-disabled="true"] {
             opacity: 0.6;
             pointer-events: none;
@@ -46,4 +53,20 @@
         font-size: tokens.$font-size-16;
         font-weight: tokens.$font-weight-semibold;
         }
+
+    &__span.menu_icon {
+        font-family: 'Material Symbols Outlined';
+        font-size: inherit;
+        font-weight: inherit;
+    }
+    
+    &__submenu {
+        list-style: none;
+        background-color: tokens.$color-surface;
+        border-radius: 0 0 tokens.$border-radius-m tokens.$border-radius-m;
+        padding: tokens.$padding-s;
+    }
+    
 }
+
+

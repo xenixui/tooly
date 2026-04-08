@@ -1,6 +1,10 @@
 'use strict';
 
+import { TOOLS } from '../../js/config.js';
 
+const SUBMENUS = {
+    tools: TOOLS
+};
 
 export class Menu extends HTMLElement {
     constructor () {
@@ -51,8 +55,41 @@ export class Menu extends HTMLElement {
             const link = document.createElement('a');
             link.classList.add ("menu__link");
             link.textContent = item.name;
-            link.href = item.href;
-            menuItem.appendChild(link)
+            link.href = item.href || '#';
+
+              if (item.submenu) {
+                const iconLink = document.createElement('link');
+                iconLink.rel = 'stylesheet';
+                iconLink.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined';
+                this.shadowRoot.appendChild(iconLink);
+                
+                const icon = document.createElement('span');
+                icon.classList.add('menu__span', 'menu_icon');
+                icon.textContent = 'expand_more'; 
+                link.appendChild(icon);
+                }
+
+            menuItem.appendChild(link);
+
+            if (item.submenu) {
+                link.classList.add('active_dropdown');
+                const submenu = document.createElement('ul');
+                const submenuItems = SUBMENUS[item.submenu];
+
+                for (const sub of submenuItems) {
+                    const subItem = document.createElement('li');
+
+                    const subLink = document.createElement('a');
+                    subLink.textContent = sub.name;
+                    subLink.href = sub.href;
+                    subLink.classList.add('menu__link');
+
+                    subItem.appendChild(subLink);
+                    submenu.appendChild(subItem);
+                };
+                submenu.classList.add('menu__submenu');
+                menuItem.appendChild(submenu); 
+            }
             menu.appendChild(menuItem);
         }
     }

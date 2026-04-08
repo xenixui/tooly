@@ -120,6 +120,8 @@ export class Dropdown extends HTMLElement {
             const dropdown = this.shadowRoot.querySelector('.dropdown');
             const dropdownWidth = parseFloat(getComputedStyle(dropdown).minWidth) || 160;
             const dropdownHeight = dropdown.offsetHeight || 100;
+
+            const r2 = dropdown.getBoundingClientRect();
             const margin = 8;
             
             const leftAligned = r.left;

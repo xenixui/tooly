@@ -45,6 +45,12 @@
   border: solid 1px hsl(341, 87%, 93%);
   color: hsl(341, 87%, 14%);
 }
+.menu__link.active_dropdown, .menu__button.active_dropdown {
+  background-color: hsl(341, 87%, 93%);
+  border: solid 1px hsl(341, 87%, 93%);
+  color: hsl(341, 87%, 14%);
+  border-radius: 0.75rem 0.75rem 0 0;
+}
 .menu__link.disabled, .menu__link[aria-disabled=true], .menu__button.disabled, .menu__button[aria-disabled=true] {
   opacity: 0.6;
   pointer-events: none;
@@ -52,6 +58,17 @@
 .menu__span {
   font-size: 1rem;
   font-weight: 600;
+}
+.menu__span.menu_icon {
+  font-family: "Material Symbols Outlined";
+  font-size: inherit;
+  font-weight: inherit;
+}
+.menu__submenu {
+  list-style: none;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 0 0 1rem 1rem;
+  padding: 0.5rem;
 }
 
 /*# sourceMappingURL=menu.css.map */

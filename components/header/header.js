@@ -104,9 +104,8 @@ export class Header extends HTMLElement {
     }
 
     _openMobileMenu() {
-        const mobileBreakpoint = 768;
         const btnMenu = this.shadowRoot.getElementById('mobileMenu');
-        const desktopMenu = this.shadowRoot.getElementById('desktopMenu');
+
 
         this._updateMobileMenuState();
 
@@ -117,6 +116,7 @@ export class Header extends HTMLElement {
         document.body.appendChild(menu);
         
         btnMenu.addEventListener('click', async () => {
+            const r = btnMenu.getBoundingClientRect();
             if(dropdown._isOpen) {
                 await dropdown.closeDropdown(btnMenu);
             } else {
